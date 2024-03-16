@@ -1,82 +1,76 @@
-:root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	line-height: 1.5;
-	font-weight: 400;
-
-	color: #222;
-	background-color: #ffffff;
-
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-text-size-adjust: 100%;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
-	margin: 0;
-	display: flex;
-	align-items: center;
-	min-height: 100vh;
+    @apply flex items-center justify-center min-h-screen;
 }
 
-#app {
-	max-width: 1280px;
-	margin: 0 auto;
-	text-align: center;
+.EncounterCard {
+    @apply max-w-md;
+
+    .Header {
+        @apply bg-gray-800 text-fallout-yellow text-4xl leading-none flex;
+        border-bottom: dashed 1px white;
+
+        .Number {
+            @apply px-1 pb-1;
+            border-right: dashed 1px white;
+        }
+    }
+
+    .Story {
+        @apply bg-fallout-yellow text-gray-900 italic p-3 text-center text-sm leading-tight font-serif;
+    }
+
+    .Choice {
+        @apply bg-white text-sm text-black font-bold font-serif flex gap-2 py-2 px-2 items-center;
+
+        &:not(:last-child) {
+            border-bottom: dotted 2px black;
+        }
+
+        .Text {
+            @apply w-full text-center;
+        }
+
+        &:hover {
+            @apply bg-blue-100 cursor-pointer;
+        }
+    }
+
+    .Bookmark {
+        @apply inline-block bg-gray-900 text-base leading-none p-1 text-white font-sans font-normal;
+    }
+
+    .Attr {
+        @apply inline-block p-0.5 mx-0.5 text-sm leading-none font-mono bg-gray-900 rounded text-white;
+    }
+
+    .Difficult {
+        @apply inline-block p-0.5 mx-0.5 text-sm leading-none font-mono bg-none rounded;
+    }
+
+    .Result {
+        @apply bg-fallout-blue text-gray-900 italic p-3 text-center text-sm leading-tight font-serif;
+
+        & + .Result {
+            border-top: dashed 1px black;
+        }
+    }
+
+    .Script {
+        @apply inline font-bold;
+
+        & + .Script:before {
+            content: " • ";
+        }
+    }
 }
 
-img {
-	margin-bottom: 1.5rem;
-}
-
-img:hover {
-	filter: drop-shadow(0 0 2em #673ab8aa);
-}
-
-section {
-	margin-top: 5rem;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	column-gap: 1.5rem;
-}
-
-.resource {
-	padding: 0.75rem 1.5rem;
-	border-radius: 0.5rem;
-	text-align: left;
-	text-decoration: none;
-	color: #222;
-	background-color: #f1f1f1;
-	border: 1px solid transparent;
-}
-
-.resource:hover {
-	border: 1px solid #000;
-	box-shadow: 0 25px 50px -12px #673ab888;
-}
-
-@media (max-width: 639px) {
-	#app {
-		margin: 2rem;
-	}
-	section {
-		margin-top: 5rem;
-		grid-template-columns: 1fr;
-		row-gap: 1rem;
-	}
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		color: #ccc;
-		background-color: #1a1a1a;
-	}
-	.resource {
-		color: #ccc;
-		background-color: #161616;
-	}
-	.resource:hover {
-		border: 1px solid #bbb;
-	}
+.SvgIcon {
+    display: inline;
+    height: 1.2em;
+    width: auto;
+    fill: currentColor;
 }
