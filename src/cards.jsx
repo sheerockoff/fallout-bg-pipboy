@@ -1,4 +1,4 @@
-import {Component} from "preact";
+import {Component, toChildArray} from "preact";
 
 export class EncounterCard extends Component {
     render(props, state, context) {
@@ -22,6 +22,8 @@ export function Story(props) {
 }
 
 export function Choice(props) {
+    const children = toChildArray(props.children);
+
     return (
         <div>
             <div class="Choice">
@@ -30,10 +32,10 @@ export function Choice(props) {
                         {props.number}
                     </div>
                 }
-                {props.children.shift()}
+                {children.shift()}
             </div>
 
-            {props.children}
+            {children}
         </div>
     );
 }

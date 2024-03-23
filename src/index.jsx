@@ -6,7 +6,7 @@ import {CardsRepository} from "./repository.jsx";
 export function App() {
     const cards = new CardsRepository();
 
-    const card = cards.find("Wasteland", "001");
+    const card = cards.find("Wasteland", "★4");
 
     return (
         <div class="App">
