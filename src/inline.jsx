@@ -1,5 +1,3 @@
-import WastelandSvg from '../public/pics/Wasteland.svg';
-
 export function Text(props) {
     return (
         <div class="Text">
