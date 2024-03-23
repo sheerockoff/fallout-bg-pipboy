@@ -30,10 +30,10 @@ export function Choice(props) {
                         {props.number}
                     </div>
                 }
-                {props.children.filter(child => child.type.name === 'Text')}
+                {props.children.shift()}
             </div>
 
-            {props.children.filter(child => child.type.name !== 'Text')}
+            {props.children}
         </div>
     );
 }
